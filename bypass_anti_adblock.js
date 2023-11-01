@@ -1,6 +1,6 @@
 // Function to detect and remove anti-ad-block measures
 function removeAntiAdBlock() {
-    const antiAdBlockElements = document.querySelectorAll('.anti-adblock-class'); // Replace with the class name of anti-ad-block elements
+    const antiAdBlockElements = document.querySelectorAll('.anti-adblock-class'); 
     antiAdBlockElements.forEach(antiAdBlockElement => {
       antiAdBlockElement.remove();
     });
@@ -24,11 +24,13 @@ function removeAntiAdBlock() {
         fmovies: 'fmovies.com',
         
     }
+    //prefix for ad class since actual name may vary per website
+    const adClassPrefix = 'ad';
   
     // Check if the current URL matches any of the target URLs
     if (targetURLs.some(url => currentURL.includes(url))) {
       // Select and remove ad elements by class name
-      const adElements = document.querySelectorAll('.ad-class'); // Replace with the actual class name of your ad elements
+      const adElements = document.querySelectorAll(`[class^="${adClassPrefix}"]`); // Replace with the actual class name of your ad elements
       adElements.forEach(adElement => {
         adElement.remove();
       });
